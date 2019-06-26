@@ -8,7 +8,14 @@ import Dashboard from './Dashboard.js';
 describe('<Dashboard />', () => {
 	it('should show the controls and display', () => {
 		const tree = renderer.create(<Dashboard />);
-
+		// snapshot shows the controls and display
 		expect(tree.toJSON()).toMatchSnapshot();
+	});
+
+	it('should default to unlocked and open', () => {
+		const { getByText } = render(<Dashboard />);
+		// shows is the default gate is Unlocked and Open
+		getByText('Unlocked');
+		getByText('Open');
 	});
 });
